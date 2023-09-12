@@ -1,0 +1,105 @@
+[Entry Point]
+  # {method} {0x000000013847d768} 'ifsEnum' '(Lorg/openjdk/jmh/infra/Blackhole;)V' in 'org/example/IteratorsBenchmark'
+  # this:     c_rarg1:c_rarg1
+                        = 'org/example/IteratorsBenchmark'
+  # parm0:    c_rarg2:c_rarg2
+                        = 'org/openjdk/jmh/infra/Blackhole'
+  #           [sp+0x30]  (sp of caller)
+  0x000000011663fac0:   ldr     w8, [x1, #8]
+  0x000000011663fac4:   cmp     w9, w8
+  0x000000011663fac8:   b.eq    0x000000011663fad0  // b.none
+  0x000000011663facc:   b       0x00000001160c4c00          ;   {runtime_call ic_miss_stub}
+[Verified Entry Point]
+  0x000000011663fad0:   nop
+  0x000000011663fad4:   sub     x9, sp, #0x14, lsl #12
+  0x000000011663fad8:   str     xzr, [x9]
+  0x000000011663fadc:   sub     sp, sp, #0x30
+  0x000000011663fae0:   stp     x29, x30, [sp, #32]
+  0x000000011663fae4:   ldr     w29, [x1, #12]
+  0x000000011663fae8:   cbz     x2, 0x000000011663fb88
+  0x000000011663faec:   cmp     w29, #0x0
+  0x000000011663faf0:   b.le    0x000000011663fb64
+  0x000000011663faf4:   mov     w8, #0x7ffffffe                 // #2147483646
+  0x000000011663faf8:   cmp     w29, w8
+  0x000000011663fafc:   b.gt    0x000000011663fb7c
+  0x000000011663fb00:   add     w10, w29, #0x1
+  0x000000011663fb04:   orr     w12, wzr, #0x1
+  0x000000011663fb08:   mov     w11, #0x3e8                     // #1000
+  0x000000011663fb0c:   mov     x13, #0x48                      // #72
+                                                            ;   {oop("VALUE"{0x000000043c840048})}
+  0x000000011663fb10:   movk    x13, #0x3c84, lsl #16
+  0x000000011663fb14:   movk    x13, #0x4, lsl #32
+;;; Go to the loop's latch
+  0x000000011663fb18:   b       0x000000011663fb44
+  0x000000011663fb1c:   nop
+;;; The main loop
+  0x000000011663fb20:   mov     w12, w14
+  0x000000011663fb24:   add     w14, w12, #0x1
+  0x000000011663fb28:   cmp     w14,
+;; Iterate for at most 1000 times
+  0x000000011663fb2c:   b.lt    0x000000011663fb20  // b.tstop
+;; Safepoint poll
+  0x000000011663fb30:   ldr     x15, [x28, #840]            ; ImmutableOopMap {r13=Oop c_rarg2=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.IteratorsBenchmark::ifsEnum@33 (line 184)
+  0x000000011663fb34:   ldr     wzr, [x15]                  ;   {poll}
+  0x000000011663fb38:   cmp     w14, w10
+  0x000000011663fb3c:   b.ge    0x000000011663fb64  // b.tcont
+  0x000000011663fb40:   mov     w12, w14
+;;; The latch
+  0x000000011663fb44:   sub     w15, w29, w12
+  0x000000011663fb48:   cmp     w10, w12
+  0x000000011663fb4c:   add     w14, w15, #0x1
+  0x000000011663fb50:   csel    w14, wzr, w14, lt  // lt = tstop
+;;; That forces safepoint polling every 1000 iterations.
+  0x000000011663fb54:   cmp     w14, #0x3e8
+  0x000000011663fb58:   csel    w14, w11, w14, hi  // hi = pmore
+  0x000000011663fb5c:   add     w15, w14, w12
+;;; Jump into the main loop
+  0x000000011663fb60:   b       0x000000011663fb24
+  0x000000011663fb64:   ldp     x29, x30, [sp, #32]
+  0x000000011663fb68:   add     sp, sp, #0x30
+  0x000000011663fb6c:   ldr     x8, [x28, #832]             ;   {poll_return}
+  0x000000011663fb70:   cmp     sp, x8
+  0x000000011663fb74:   b.hi    0x000000011663fb98  // b.pmore
+;;; And that's all, folks!
+  0x000000011663fb78:   ret
+  0x000000011663fb7c:   str     x2, [sp]
+  0x000000011663fb80:   mov     w1, #0xffffff6e                 // #-146
+  0x000000011663fb84:   bl      0x00000001160cb880          ; ImmutableOopMap {[0]=Oop }
+                                                            ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.IteratorsBenchmark::ifsEnum@22 (line 183)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000000011663fb88:   str     x1, [sp]
+  0x000000011663fb8c:   mov     x29, x2
+  0x000000011663fb90:   mov     w1, #0xffffff45                 // #-187
+  0x000000011663fb94:   bl      0x00000001160cb880          ; ImmutableOopMap {rfp=Oop [0]=Oop }
+                                                            ;*ifnonnull {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) kotlin.jvm.internal.Intrinsics::checkNotNullParameter@1 (line 130)
+                                                            ; - org.example.IteratorsBenchmark::ifsEnum@3
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x000000011663fb98:   adr     x8, 0x000000011663fb6c      ;   {internal_word}
+  0x000000011663fb9c:   str     x8, [x28, #856]
+  0x000000011663fba0:   b       0x00000001160cb200          ;   {runtime_call SafepointBlob}
+  0x000000011663fba4:   udf     #0
+  0x000000011663fba8:   udf     #0
+  0x000000011663fbac:   udf     #0
+  0x000000011663fbb0:   udf     #0
+  0x000000011663fbb4:   udf     #0
+  0x000000011663fbb8:   udf     #0
+  0x000000011663fbbc:   udf     #0
+[Stub Code]
+  0x000000011663fbc0:   ldr     x8, 0x000000011663fbc8      ;   {no_reloc}
+  0x000000011663fbc4:   br      x8
+  0x000000011663fbc8:   b       0x000000010e96ddc8
+  0x000000011663fbcc:   udf     #1
+  0x000000011663fbd0:   ldr     x8, 0x000000011663fbd8      ;   {trampoline_stub}
+  0x000000011663fbd4:   br      x8
+  0x000000011663fbd8:   b       0x000000010e96ddd8
+  0x000000011663fbdc:   udf     #1
+[Exception Handler]
+  0x000000011663fbe0:   b       0x0000000116174900          ;   {runtime_call ExceptionBlob}
+[Deopt Handler Code]
+  0x000000011663fbe4:   adr     x30, 0x000000011663fbe4
+  0x000000011663fbe8:   b       0x00000001160cb540          ;   {runtime_call DeoptimizationBlob}
+  0x000000011663fbec:   udf     #0

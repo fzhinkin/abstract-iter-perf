@@ -1,0 +1,10 @@
+Benchmark                             (size)   Mode  Cnt          Score         Error  Units
+IteratorsBenchmark.ifsEnum                10  thrpt    5  275112588.216 ± 2613481.854  ops/s
+IteratorsBenchmark.ifsEnum               100  thrpt    5   32746709.494 ±  125182.189  ops/s
+IteratorsBenchmark.ifsEnum              1000  thrpt    5   39904267.940 ±  113124.926  ops/s
+IteratorsBenchmark.tableSwitchEnum        10  thrpt    5   67918328.555 ±  554543.898  ops/s
+IteratorsBenchmark.tableSwitchEnum       100  thrpt    5    7399119.069 ±   47553.956  ops/s
+IteratorsBenchmark.tableSwitchEnum      1000  thrpt    5     830784.963 ±    2213.645  ops/s
+IteratorsBenchmark.tableSwitchIntCon      10  thrpt    5  274924071.065 ± 1113482.614  ops/s
+IteratorsBenchmark.tableSwitchIntCon     100  thrpt    5   32483325.458 ±  407678.803  ops/s
+IteratorsBenchmark.tableSwitchIntCon    1000  thrpt    5   39985930.565 ±  174392.536  ops/s

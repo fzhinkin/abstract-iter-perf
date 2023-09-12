@@ -1,0 +1,232 @@
+[Entry Point]
+  # {method} {0x000000015a47d660} 'tableSwitchEnum' '(Lorg/openjdk/jmh/infra/Blackhole;)V' in 'org/example/IteratorsBenchmark'
+  # this:     c_rarg1:c_rarg1
+                        = 'org/example/IteratorsBenchmark'
+  # parm0:    c_rarg2:c_rarg2
+                        = 'org/openjdk/jmh/infra/Blackhole'
+  #           [sp+0x40]  (sp of caller)
+  0x0000000115e1b380:   ldr     w8, [x1, #8]
+  0x0000000115e1b384:   cmp     w9, w8
+  0x0000000115e1b388:   b.eq    0x0000000115e1b390  // b.none
+  0x0000000115e1b38c:   b       0x00000001158a0c00          ;   {runtime_call ic_miss_stub}
+[Verified Entry Point]
+  0x0000000115e1b390:   nop
+  0x0000000115e1b394:   sub     x9, sp, #0x14, lsl #12
+  0x0000000115e1b398:   str     xzr, [x9]
+  0x0000000115e1b39c:   sub     sp, sp, #0x40
+  0x0000000115e1b3a0:   stp     x29, x30, [sp, #48]
+  0x0000000115e1b3a4:   mov     x11, #0x71f0                    // #29168
+                                                            ;   {oop([I{0x000000043f0071f0})}
+  0x0000000115e1b3a8:   movk    x11, #0x3f00, lsl #16
+  0x0000000115e1b3ac:   movk    x11, #0x4, lsl #32
+  0x0000000115e1b3b0:   mov     x29, x1
+  0x0000000115e1b3b4:   ldr     w10, [x11, #24]
+  0x0000000115e1b3b8:   cbz     x2, 0x0000000115e1b58c
+  0x0000000115e1b3bc:   ldr     w4, [x1, #12]
+  0x0000000115e1b3c0:   cmp     w10, #0x2
+  0x0000000115e1b3c4:   b.ne    0x0000000115e1b3f0  // b.any
+  0x0000000115e1b3c8:   mov     x10, #0xa10                     // #2576
+                                                            ;   {oop(a 'org/example/StateEnum'{0x000000043fff0a10})}
+  0x0000000115e1b3cc:   movk    x10, #0x3fff, lsl #16
+  0x0000000115e1b3d0:   movk    x10, #0x4, lsl #32
+  0x0000000115e1b3d4:   mov     x13, xzr
+  0x0000000115e1b3d8:   mov     w1, wzr
+  0x0000000115e1b3dc:   mov     x3, xzr
+  0x0000000115e1b3e0:   lsr     x10, x10, #3
+  0x0000000115e1b3e4:   mov     x14, #0x87ff0000                // #2281635840
+                                                            ;   {oop(a 'org/example/StateEnum'{0x000000043fff0980})}
+  0x0000000115e1b3e8:   movk    x14, #0xe130
+  0x0000000115e1b3ec:   b       0x0000000115e1b43c
+  0x0000000115e1b3f0:   sub     w12, w10, #0x1
+  0x0000000115e1b3f4:   cmp     w12, #0x2
+  0x0000000115e1b3f8:   b.cc    0x0000000115e1b57c  // b.lo, b.ul, b.last
+  0x0000000115e1b3fc:   cmp     w4, #0x0
+  0x0000000115e1b400:   b.le    0x0000000115e1b4e8
+  0x0000000115e1b404:   mov     x10, #0x9c8                     // #2504
+                                                            ;   {oop(a 'org/example/StateEnum'{0x000000043fff09c8})}
+  0x0000000115e1b408:   movk    x10, #0x3fff, lsl #16
+  0x0000000115e1b40c:   movk    x10, #0x4, lsl #32
+  0x0000000115e1b410:   mov     x13, #0x87e00000                // #2279604224
+                                                            ;   {oop("VALUE"{0x000000043f007210})}
+  0x0000000115e1b414:   movk    x13, #0xe42
+  0x0000000115e1b418:   orr     w1, wzr, #0x1
+  0x0000000115e1b41c:   mov     x3, #0x7210                     // #29200
+                                                            ;   {oop("VALUE"{0x000000043f007210})}
+  0x0000000115e1b420:   movk    x3, #0x3f00, lsl #16
+  0x0000000115e1b424:   movk    x3, #0x4, lsl #32
+  0x0000000115e1b428:   b       0x0000000115e1b3e0
+  0x0000000115e1b42c:   lsl     x3, x13, #3
+  0x0000000115e1b430:   mov     x10, #0x87ff0000                // #2281635840
+                                                            ;   {oop(a 'org/example/StateEnum'{0x000000043fff0a10})}
+  0x0000000115e1b434:   movk    x10, #0xe142
+  0x0000000115e1b438:   mov     w1, w17
+  0x0000000115e1b43c:   add     x16, xzr, x10, lsl #3
+  0x0000000115e1b440:   ldr     w29, [x16, #12]
+  0x0000000115e1b444:   cmp     w10, w14
+  0x0000000115e1b448:   add     x12, x11, w29, sxtw #2
+  0x0000000115e1b44c:   b.eq    0x0000000115e1b564  // b.none
+  0x0000000115e1b450:   cmp     w29, #0x4
+  0x0000000115e1b454:   b.cs    0x0000000115e1b500  // b.hs, b.nlast
+  0x0000000115e1b458:   ldr     w0, [x12, #16]
+  0x0000000115e1b45c:   lsl     x15, x13, #3
+  0x0000000115e1b460:   cmp     w0, #0x2
+  0x0000000115e1b464:   b.ne    0x0000000115e1b470  // b.any
+  0x0000000115e1b468:   mov     w17, w1
+  0x0000000115e1b46c:   b       0x0000000115e1b49c
+  0x0000000115e1b470:   sub     w12, w0, #0x1
+  0x0000000115e1b474:   add     w17, w1, #0x1
+  0x0000000115e1b478:   cmp     w12, #0x2
+  0x0000000115e1b47c:   b.cc    0x0000000115e1b530  // b.lo, b.ul, b.last
+  0x0000000115e1b480:   cmp     w1, w4
+  0x0000000115e1b484:   b.ge    0x0000000115e1b518  // b.tcont
+  0x0000000115e1b488:   mov     x13, #0x87e00000                // #2279604224
+                                                            ;   {oop("VALUE"{0x000000043f007210})}
+  0x0000000115e1b48c:   movk    x13, #0xe42
+  0x0000000115e1b490:   mov     x15, #0x7210                    // #29200
+                                                            ;   {oop("VALUE"{0x000000043f007210})}
+  0x0000000115e1b494:   movk    x15, #0x3f00, lsl #16
+  0x0000000115e1b498:   movk    x15, #0x4, lsl #32
+  0x0000000115e1b49c:   ldr     x12, [x28, #840]            ; ImmutableOopMap {r11=Oop r13=NarrowOop r14=NarrowOop r15=Oop c_rarg2=Oop }
+                                                            ;*goto {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.IteratorsBenchmark::tableSwitchEnum@33 (line 176)
+  0x0000000115e1b4a0:   ldr     wzr, [x12]                  ;   {poll}
+  0x0000000115e1b4a4:   ldr     w29, [x11, #24]
+  0x0000000115e1b4a8:   cmp     w29, #0x2
+  0x0000000115e1b4ac:   b.eq    0x0000000115e1b42c  // b.none
+  0x0000000115e1b4b0:   sub     w10, w29, #0x1
+  0x0000000115e1b4b4:   cmp     w10, #0x2
+  0x0000000115e1b4b8:   b.cc    0x0000000115e1b54c  // b.lo, b.ul, b.last
+  0x0000000115e1b4bc:   cmp     w17, w4
+  0x0000000115e1b4c0:   b.ge    0x0000000115e1b4e8  // b.tcont
+  0x0000000115e1b4c4:   add     w17, w17, #0x1
+  0x0000000115e1b4c8:   mov     x13, #0x87e00000                // #2279604224
+                                                            ;   {oop("VALUE"{0x000000043f007210})}
+  0x0000000115e1b4cc:   movk    x13, #0xe42
+  0x0000000115e1b4d0:   mov     x10, #0x87ff0000                // #2281635840
+                                                            ;   {oop(a 'org/example/StateEnum'{0x000000043fff09c8})}
+  0x0000000115e1b4d4:   movk    x10, #0xe139
+  0x0000000115e1b4d8:   mov     x3, #0x7210                     // #29200
+                                                            ;   {oop("VALUE"{0x000000043f007210})}
+  0x0000000115e1b4dc:   movk    x3, #0x3f00, lsl #16
+  0x0000000115e1b4e0:   movk    x3, #0x4, lsl #32
+  0x0000000115e1b4e4:   b       0x0000000115e1b438
+  0x0000000115e1b4e8:   ldp     x29, x30, [sp, #48]
+  0x0000000115e1b4ec:   add     sp, sp, #0x40
+  0x0000000115e1b4f0:   ldr     x8, [x28, #832]             ;   {poll_return}
+  0x0000000115e1b4f4:   cmp     sp, x8
+  0x0000000115e1b4f8:   b.hi    0x0000000115e1b598  // b.pmore
+  0x0000000115e1b4fc:   ret
+  0x0000000115e1b500:   str     w1, [sp, #12]
+  0x0000000115e1b504:   stp     x3, x16, [sp, #16]
+  0x0000000115e1b508:   str     w4, [sp, #8]
+  0x0000000115e1b50c:   str     x2, [sp]
+  0x0000000115e1b510:   mov     w1, #0xffffffe4                 // #-28
+  0x0000000115e1b514:   bl      0x00000001158a7880          ; ImmutableOopMap {[0]=Oop [16]=Oop [24]=Oop }
+                                                            ;*iaload {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - org.example.AbstractIteratorWithTableSwitchOverEnum::hasNext@44 (line 25)
+                                                            ; - org.example.AbstractIteratorWithTableSwitchOverEnum::next@1 (line 33)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@27 (line 176)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b518:   str     w1, [sp, #4]
+  0x0000000115e1b51c:   str     x15, [sp, #8]
+  0x0000000115e1b520:   str     w4, [sp]
+  0x0000000115e1b524:   mov     x29, x2
+  0x0000000115e1b528:   mov     w1, #0xffffff45                 // #-187
+  0x0000000115e1b52c:   bl      0x00000001158a7880          ; ImmutableOopMap {rfp=Oop [8]=Oop }
+                                                            ;*ifne {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.AbstractIteratorWithTableSwitchOverEnum::next@4 (line 33)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@27 (line 176)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b530:   str     w1, [sp, #4]
+  0x0000000115e1b534:   str     w0, [sp, #24]
+  0x0000000115e1b538:   stp     x3, x16, [sp, #8]
+  0x0000000115e1b53c:   str     w4, [sp]
+  0x0000000115e1b540:   mov     x29, x2
+  0x0000000115e1b544:   mov     w1, #0xffffff45                 // #-187
+  0x0000000115e1b548:   bl      0x00000001158a7880          ; ImmutableOopMap {rfp=Oop [8]=Oop [16]=Oop }
+                                                            ;*tableswitch {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.AbstractIteratorWithTableSwitchOverEnum::hasNext@45 (line 25)
+                                                            ; - org.example.AbstractIteratorWithTableSwitchOverEnum::next@1 (line 33)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@27 (line 176)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b54c:   str     w17, [sp, #12]
+  0x0000000115e1b550:   str     x15, [sp, #16]
+  0x0000000115e1b554:   str     w4, [sp, #8]
+  0x0000000115e1b558:   str     x2, [sp]
+  0x0000000115e1b55c:   mov     w1, #0xffffff45                 // #-187
+  0x0000000115e1b560:   bl      0x00000001158a7880          ; ImmutableOopMap {[0]=Oop [16]=Oop }
+                                                            ;*tableswitch {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.AbstractIteratorWithTableSwitchOverEnum::hasNext@45 (line 25)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@19 (line 175)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b564:   str     w1, [sp, #4]
+  0x0000000115e1b568:   stp     x3, x16, [sp, #8]
+  0x0000000115e1b56c:   str     w4, [sp]
+  0x0000000115e1b570:   mov     x29, x2
+  0x0000000115e1b574:   mov     w1, #0xffffff45                 // #-187
+  0x0000000115e1b578:   bl      0x00000001158a7880          ; ImmutableOopMap {rfp=Oop [8]=Oop [16]=Oop }
+                                                            ;*if_acmpeq {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.AbstractIteratorWithTableSwitchOverEnum::hasNext@7 (line 24)
+                                                            ; - org.example.AbstractIteratorWithTableSwitchOverEnum::next@1 (line 33)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@27 (line 176)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b57c:   stp     w10, w4, [sp]
+  0x0000000115e1b580:   mov     x29, x2
+  0x0000000115e1b584:   mov     w1, #0xffffff45                 // #-187
+  0x0000000115e1b588:   bl      0x00000001158a7880          ; ImmutableOopMap {rfp=Oop }
+                                                            ;*tableswitch {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) org.example.AbstractIteratorWithTableSwitchOverEnum::hasNext@45 (line 25)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@19 (line 175)
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b58c:   str     x2, [sp]
+  0x0000000115e1b590:   mov     w1, #0xffffff45                 // #-187
+  0x0000000115e1b594:   bl      0x00000001158a7880          ; ImmutableOopMap {rfp=Oop [0]=Oop }
+                                                            ;*ifnonnull {reexecute=1 rethrow=0 return_oop=0}
+                                                            ; - (reexecute) kotlin.jvm.internal.Intrinsics::checkNotNullParameter@1 (line 130)
+                                                            ; - org.example.IteratorsBenchmark::tableSwitchEnum@3
+                                                            ;   {runtime_call UncommonTrapBlob}
+  0x0000000115e1b598:   adr     x8, 0x0000000115e1b4f0      ;   {internal_word}
+  0x0000000115e1b59c:   str     x8, [x28, #856]
+  0x0000000115e1b5a0:   b       0x00000001158a7200          ;   {runtime_call SafepointBlob}
+  0x0000000115e1b5a4:   udf     #0
+  0x0000000115e1b5a8:   udf     #0
+  0x0000000115e1b5ac:   udf     #0
+  0x0000000115e1b5b0:   udf     #0
+  0x0000000115e1b5b4:   udf     #0
+  0x0000000115e1b5b8:   udf     #0
+  0x0000000115e1b5bc:   udf     #0
+[Stub Code]
+  0x0000000115e1b5c0:   ldr     x8, 0x0000000115e1b5c8      ;   {no_reloc}
+  0x0000000115e1b5c4:   br      x8
+  0x0000000115e1b5c8:   b       0x000000011c0b97c8
+  0x0000000115e1b5cc:   udf     #1
+  0x0000000115e1b5d0:   ldr     x8, 0x0000000115e1b5d8      ;   {trampoline_stub}
+  0x0000000115e1b5d4:   br      x8
+  0x0000000115e1b5d8:   b       0x000000011c0b97d8
+  0x0000000115e1b5dc:   udf     #1
+  0x0000000115e1b5e0:   ldr     x8, 0x0000000115e1b5e8      ;   {trampoline_stub}
+  0x0000000115e1b5e4:   br      x8
+  0x0000000115e1b5e8:   b       0x000000011c0b97e8
+  0x0000000115e1b5ec:   udf     #1
+  0x0000000115e1b5f0:   ldr     x8, 0x0000000115e1b5f8      ;   {trampoline_stub}
+  0x0000000115e1b5f4:   br      x8
+  0x0000000115e1b5f8:   b       0x000000011c0b97f8
+  0x0000000115e1b5fc:   udf     #1
+  0x0000000115e1b600:   ldr     x8, 0x0000000115e1b608      ;   {trampoline_stub}
+  0x0000000115e1b604:   br      x8
+  0x0000000115e1b608:   b       0x000000011c0b9808
+  0x0000000115e1b60c:   udf     #1
+  0x0000000115e1b610:   ldr     x8, 0x0000000115e1b618      ;   {trampoline_stub}
+  0x0000000115e1b614:   br      x8
+  0x0000000115e1b618:   b       0x000000011c0b9818
+  0x0000000115e1b61c:   udf     #1
+  0x0000000115e1b620:   ldr     x8, 0x0000000115e1b628      ;   {trampoline_stub}
+  0x0000000115e1b624:   br      x8
+  0x0000000115e1b628:   b       0x000000011c0b9828
+  0x0000000115e1b62c:   udf     #1
+[Exception Handler]
+  0x0000000115e1b630:   b       0x00000001158c2980          ;   {runtime_call ExceptionBlob}
+[Deopt Handler Code]
+  0x0000000115e1b634:   adr     x30, 0x0000000115e1b634
+  0x0000000115e1b638:   b       0x00000001158a7540          ;   {runtime_call DeoptimizationBlob}
+  0x0000000115e1b63c:   udf     #0
